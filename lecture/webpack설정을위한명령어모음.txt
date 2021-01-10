@@ -1,0 +1,22 @@
+*NodeJS 설치 필수
+*-D : 개발환경에서만 사용함을 의미(webpack.config.js의 devDependencies)
+
+1. npm init
+
+2. npm i react react-dom
+
+3. npm i -D webpack webpack-cli
+
+4. npm i -D @babel/core @babel/preset-env @babel/preset-react
+
+5. npm i -D babel-loader
+
+6. npm i react-refresh @pmmmwh/react-refresh-webpack-plugin -D
+
+7. npm i -D webpack-dev-server
+
+------------------------------------------------------------------------
+
+이미 세팅되어있는 소스 사용시
+
+npm install 사용하면 자동으로 설치 됨

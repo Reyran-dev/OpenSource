@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id = "root"></div>
+        <script type = "text/babel">
+            class GuGuDan extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        first : Math.ceil(Math.random() * 9), // Math.random() * 9 -> 1 ~ 9까지의 아무 숫자
+                        second : Math.ceil(Math.random() * 9),
+                        value : '', // 입력창에 들어갈 값
+                        result : '', // 결과값에 들어갈 값
+                    }
+                }
+                // jsx에서 사용되는 js logic은 웬만하면 따로 빼서 class안의 method로 만들어주는게 좋음
+                onSubmit =  (e) => {
+                    e.preventDefault();
+                    if(parseInt(this.state.value) === this.state.first * this.state.second){
+                        // 예전 State값(this.setState)으로 새로운 State를 만들때에는 Return 함수를 사용하자
+                        this.setState((prevState) => {
+                            return {
+                                result : '정답 : ' + prevState.value,
+                                //result : this.state.first + ' X ' + this.state.second + ' = ' + this.state.value + ' 정답!',
+                                first : Math.ceil(Math.random() * 9),
+                                second : Math.ceil(Math.random() * 9),
+                                value : '',
+                             };
+                        });
+                    } else{
+                        this.setState({
+                                result : '땡',
+                                value : '',
+                            }
+                        );
+                    }
+                } 
+                
+                onChange = (e) => this.setState({ value : e.target.value });
+
+                // setState를 할때 render가 다시 실행된다.
+                // render부에 있는 함수는 따로 빼서 사용 하는 것이 좋다
+                // render는 매번 실행하기 때문에 함수가 render부에 있을 경우, render가 실행 될때마다 함수를 만들어
+                // 소스가 복잡해질수록 성능 저하가 일어난다.
+                render(){
+                    return (
+                        <div>
+                            <div>{this.state.first} 곱하기 {this.state.second}은?</div>
+                            <form onSubmit = {this.onSubmit}>
+                                <input type = "number" value = {this.state.value} onChange = {this.onChange} />
+                                <button>입력</button>
+                            </form>
+                            <div>{this.state.result}</div>
+                        </div>
+                    );
+                }
+            }
+        </script>
+        <script type = "text/babel">
+            ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+        </script>
+    </body>
+</html>

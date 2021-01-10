@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <!-- Java Script안에서 html Tag를 사용하기 위한 추가 -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id = "root"></div>
+        <script type = "text/babel"> //기존 <script>에서 babel을 사용하기 위한 type 추가
+            const e = React.createElement;
+
+            class LikeButton extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        liked : false,
+                    };
+                }
+
+                render(){
+                    // React를 html tag처럼 사용가능(이러한 형식을 JSX라고 부른다. = JavaScript + Xml)
+                    // {this.state.liked === true ? 'Liked' : 'like'} <- Content부분에 {}로 감싸면 다시 JS 사용 가능
+                    return <button type = "sumit" onClick = { () => { this.setState( { liked : true } ) } }>
+                        {this.state.liked === true ? 'Liked' : 'Like'} 
+                    </button>;
+
+                    // return e('button', { onClick: () => { this.setState( { liked : true } ) }, type: 'submit' }, 
+                    // this.state.liked === true ? 'Liked' : 'Like',
+                    //); <- 기존 React
+                }
+            }
+        </script>
+        <script type = "text/babel"> //기존 <script>에서 babel을 사용하기 위한 type 추가
+            // React를 html tag처럼 사용가능(이러한 형식을 JSX라고 부른다. = JavaScript + Xml)
+
+            //ReactDOM.render(<LikeButton />, document.querySelector('#root'));
+            
+            ReactDOM.render(<div><LikeButton /><LikeButton /><LikeButton /></div>, document.querySelector('#root'));
+
+            //ReactDOM.render(e(LikeButton), document.querySelector('#root')); <- 기존 React
+        </script>
+    </body>
+</html>
