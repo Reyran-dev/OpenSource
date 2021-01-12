@@ -14,9 +14,3 @@
 6. npm i react-refresh @pmmmwh/react-refresh-webpack-plugin -D
 
 7. npm i -D webpack-dev-server
-
-------------------------------------------------------------------------
-
-이미 세팅되어있는 소스 사용시
-
-npm install 사용하면 자동으로 설치 됨
