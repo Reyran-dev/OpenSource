@@ -2,6 +2,7 @@
 import React from 'react'; // <=> const React = require('react');
 import ReactDom from 'react-dom'; // <=> const ReactDom = require('react-dom');
 
-import LottoClass from './LottoClass';
+//import Lotto from './LottoClass';
+import Lotto from './LottoHooks';
 
-ReactDom.render(<LottoClass />, document.querySelector('#root'));
+ReactDom.render(<Lotto />, document.querySelector('#root'));

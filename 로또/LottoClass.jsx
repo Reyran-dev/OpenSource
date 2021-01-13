@@ -1,5 +1,5 @@
 // Class 방식의 Source Code
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Ball from './Ball';
 
 function getWinNumbers() {
@@ -15,7 +15,7 @@ function getWinNumbers() {
     const winNumbers = shuffle.slice(0, 6).sort((p, c) => p - c);
 
     return [...winNumbers, bonusNumber];
-}
+};
 
 class LottoClass extends Component {
     state = {
@@ -54,7 +54,7 @@ class LottoClass extends Component {
         console.log('did Mount');
 
         this.runTimeouts();
-    }
+    };
 
     componentDidUpdate(prevProps, prevState) { // Component가 Update될 때
         console.log('did Update');
@@ -62,7 +62,7 @@ class LottoClass extends Component {
         if(this.state.winBalls.length === 0) {
             this.runTimeouts();
         }
-    }
+    };
 
     componentWillUnmount() { // Component가 UnMount될 때 setState등을 지워주지 않으면 메모리 누수 발생
         console.log('did Unmount');
@@ -70,7 +70,7 @@ class LottoClass extends Component {
         this.timeouts.forEach( (v) => {
             clearTimeout(v);
         });
-    }
+    };
 
     onClickRedo = () => {
         console.log('on Click Redo');
