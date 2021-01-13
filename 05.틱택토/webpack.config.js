@@ -5,7 +5,7 @@ const path = require('path');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-    name : 'newname-setting',
+    name : 'tictactoe-setting',
     mode : 'development', // 실서비스 : production으로 변경
     devtool : 'eval',
 
