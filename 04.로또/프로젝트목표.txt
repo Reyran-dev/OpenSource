@@ -1,0 +1,7 @@
+1. setTime 여러번 사용하기
+
+2. componentDidupdate
+
+3. useEffect로 업데이트 감지
+
+4. useMemo와 useCallback

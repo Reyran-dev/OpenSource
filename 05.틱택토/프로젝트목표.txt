@@ -1,0 +1,5 @@
+1. useReducer 소개
+
+2. reducer, action, dispatch의 관계
+
+3. action 만들어 dispatch 하기
