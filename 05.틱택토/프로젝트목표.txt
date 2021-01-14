@@ -3,3 +3,5 @@
 2. reducer, action, dispatch의 관계
 
 3. action 만들어 dispatch 하기
+
+4. useMemo와 memo를 이용한 성능 최적화
