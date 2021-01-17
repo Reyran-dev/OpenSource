@@ -1,0 +1,7 @@
+1. Context API의 사용
+
+2. createContext와 Provider
+
+3. useContext를 사용한 지뢰 칸 렌더링
+
+4. Context API 최적화
