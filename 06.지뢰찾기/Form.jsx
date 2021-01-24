@@ -1,7 +1,9 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useState, useCallback, useContext, memo } from 'react';
 import { START_GAME, TableContext } from './MineSearch';
 
-const Form = () => {
+// 쓸데없는 렌더링 방지를 위해 Memo 사용
+// memo 사용시에는 하위 Component도 전부 memo가 적용 되어야 상위 Component도 memo가 적용된다.
+const Form = memo(() => {
     const [row, setRow] = useState(10);
     const [cell, setCell] = useState(10);
     const [mine, setMine] = useState(20);
@@ -34,6 +36,6 @@ const Form = () => {
             <button onClick={onClickBtn}>시작</button>
         </div>
     );
-};
+});
 
 export default Form;

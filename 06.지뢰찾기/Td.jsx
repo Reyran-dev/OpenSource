@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, memo, useMemo } from 'react';
 import { CODE, OPEN_CELL, CLICK_MINE, FLAG_CELL, QUESTION_CELL, NORMALIZE_CELL, TableContext } from './MineSearch';
 
 // 상태에 따라 td의 색깔을 지정
@@ -48,11 +48,11 @@ const getTdText = (code) => {
         case CODE.QUESTION:
             return '?';
         default: 
-            return '';
+            return code || '';
     }
 };
 
-const Td = ({ rowIndex, cellIndex }) => {
+const Td = memo(({ rowIndex, cellIndex }) => {
     // dispatch는 Context API로 한 방에 MineSearch.jsx에서 보내준 상태
     const { tableData, halted, dispatch } = useContext(TableContext);
 
@@ -104,14 +104,14 @@ const Td = ({ rowIndex, cellIndex }) => {
         }
     }, [tableData[rowIndex][cellIndex], halted]); // 바뀌는 data를 넣어준다
 
-    return(
+    return useMemo(() => (  // 최적화를 위해 바뀌는 값을 캐싱 하는 useMemo를 사용한다.
         // TableData는 useContext로부터 받고,
         // 내가 몇번째 칸, 줄인지는 부모로부터 props로 받아 td에서 정확하게 자신의 data를 구성할 수 있다.
         <td style={getTdStyle(tableData[rowIndex][cellIndex])}
             onClick={onClickTd} // 왼쪽 클릭
             onContextMenu={onRightClickTd} // 오른쪽 클릭
         >{getTdText(tableData[rowIndex][cellIndex])}</td>
-    );
-};
+    ), [tableData[rowIndex][cellIndex]]);
+});
 
 export default Td;
