@@ -1,1 +1,13 @@
 1. React-Router를 통한 SPA(Single Page Application)의 구성에 대해 알아본다.
+
+2. Link와 BrowserRouter에 대해 공부
+
+3. HashRouter와 Params, withRouter에 대해 공부
+
+4. location, match, history에 대해 공부
+
+5. Query String와 URLSearchParams에 대해 공부
+
+6. render props, switch, exact에 대해 공부
+
+
