@@ -16,3 +16,7 @@
 7. npm i -D webpack-dev-server
 
 -----------------------------------------------------------------------
+
+*07.react-router 프로젝트 설정시에는 가장 먼저
+npm i react-router
+npm i react-router-dom 두 가지를 설치 할 것!

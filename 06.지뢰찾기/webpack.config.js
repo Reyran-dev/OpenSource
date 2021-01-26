@@ -33,6 +33,7 @@ module.exports = {
         rules : [{
             test : /\.jsx?/,
             loader : 'babel-loader',
+            query: {compact: false},
             options : {
                 presets : [
                     ['@babel/preset-env', {

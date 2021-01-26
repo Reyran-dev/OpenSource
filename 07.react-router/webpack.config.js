@@ -5,7 +5,7 @@ const path = require('path');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-    name : 'minesearch-setting',
+    name : 'newname-setting',
     mode : 'development', // 실서비스 : production으로 변경
     devtool : 'eval',
 
@@ -36,9 +36,7 @@ module.exports = {
             options : {
                 presets : [
                     ['@babel/preset-env', {
-                        targets : {
-                            browsers : ['> 1% in KR'], // browerslist(한국에서 1%이상이 사용중인 브라우저에 대한 지원)
-                        },
+                        targets: { browsers: ['last 2 chrome versions'] },
                     }],
                     '@babel/preset-react'
                 ],
@@ -54,10 +52,12 @@ module.exports = {
     ], 
     // webPack의 출력부
     output : {
-        path : path.join(__dirname, 'dist'), // __dirname : 현재 폴더(lecture), 실제 경로
-        filename : 'app.js'
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+        publicPath: '/dist',
     },
     devServer : { // 개발용 Server Refresh(Source에서 수정사항이 있을 경우, 바로 Web에 반영 = 핫로더)
+        historyApiFallback: true,
         publicPath : '/dist/', // webpack DevServer의 가상 경로
         hot : true,
     },
